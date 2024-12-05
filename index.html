@@ -1,64 +1,91 @@
-import React, { useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What The Flock</title>
+    <!-- Import fonts -->
+    <link href="https://fonts.cdnfonts.com/css/ocr-a-std" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-const MatrixLandingPage = () => {
-  const [hoveredChoice, setHoveredChoice] = useState(null);
+        body {
+            background-color: black;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
 
-  return (
-    <div className="h-screen w-screen bg-black flex flex-col items-center justify-center px-4">
-      {/* Import fonts */}
-      <style>
-        {`
-          @import url('https://fonts.cdnfonts.com/css/ocr-a-std');
-          @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-          .button-text {
+        .buttons {
+            display: flex;
+            gap: 6rem;
+            margin-bottom: 3rem;
+        }
+
+        .button {
             font-family: 'OCR-A Std', monospace;
-          }
-          
-          .paragraph-text {
+            font-size: 1.875rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .enter {
+            color: rgb(239, 68, 68);
+        }
+
+        .exit {
+            color: rgb(59, 130, 246);
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+
+        .enter:hover {
+            color: rgb(248, 113, 113);
+        }
+
+        .exit:hover {
+            color: rgb(96, 165, 250);
+        }
+
+        .text {
             font-family: 'VT323', monospace;
-          }
-        `}
-      </style>
-      
-      <div className="flex gap-24 mb-12">
-        <div 
-          className="cursor-pointer"
-          onMouseEnter={() => setHoveredChoice('enter')}
-          onMouseLeave={() => setHoveredChoice(null)}
-        >
-          <span className={`
-            button-text text-red-500 text-3xl
-            transition-all duration-300
-            ${hoveredChoice === 'enter' ? 'text-red-400 scale-110' : ''}
-          `}>
-            ENTER
-          </span>
+            color: rgb(34, 197, 94);
+            text-align: center;
+            max-width: 28rem;
+            line-height: 1.7;
+            font-size: 1.125rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <span class="button enter">ENTER</span>
+            <span class="button exit">EXIT</span>
         </div>
-
-        <div 
-          className="cursor-pointer"
-          onMouseEnter={() => setHoveredChoice('exit')}
-          onMouseLeave={() => setHoveredChoice(null)}
-        >
-          <span className={`
-            button-text text-blue-500 text-3xl
-            transition-all duration-300
-            ${hoveredChoice === 'exit' ? 'text-blue-400 scale-110' : ''}
-          `}>
-            EXIT
-          </span>
-        </div>
-      </div>
-      
-      <p className="paragraph-text text-green-500 mt-12 max-w-md text-center leading-relaxed text-lg">
-        I exist in 4,000 cities across 42 states. 
-        I cover more than 70% of the entire U.S. population. 
-        I see you every single day, but have you ever even noticed me? 
-        Enter now to figure out what the flock is going on.
-      </p>
+        <p class="text">
+            I exist in 4,000 cities across 42 states. 
+            I cover more than 70% of the entire U.S. population. 
+            I see you every single day, but have you ever even noticed me? 
+            Enter now to figure out what the flock is going on.
+        </p>
     </div>
-  );
-};
-
-export default MatrixLandingPage;
+</body>
+</html>
